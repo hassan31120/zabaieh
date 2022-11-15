@@ -1,9 +1,9 @@
-<script src="{{ asset('admin/js/core/popper.min.js') }}"></script>
-<script src="{{ asset('admin/js/core/bootstrap.min.js') }}"></script>
-<script src="{{ asset('admin/js/plugins/perfect-scrollbar.min.js') }}"></script>
-<script src="{{ asset('admin/js/plugins/smooth-scrollbar.min.js') }}"></script>
-<script src="{{ asset('admin/js/plugins/chartjs.min.js') }}"></script>
-<script src="{{ asset('admin/js/material-dashboard.min.js?v=3.0.0') }}"></script>
+<script src="{{ asset('dash/js/core/popper.min.js') }}"></script>
+<script src="{{ asset('dash/js/core/bootstrap.min.js') }}"></script>
+<script src="{{ asset('dash/js/plugins/perfect-scrollbar.min.js') }}"></script>
+<script src="{{ asset('dash/js/plugins/smooth-scrollbar.min.js') }}"></script>
+<script src="{{ asset('dash/js/plugins/chartjs.min.js') }}"></script>
+<script src="{{ asset('dash/js/material-dashboard.min.js?v=3.0.0') }}"></script>
 
 <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
