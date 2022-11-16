@@ -46,30 +46,30 @@ Route::middleware('auth:api')->group(function(){
     Route::get('/user_addresses', [AddressesController::class, 'user_addresses']);
     Route::get('/address/{id}', [AddressesController::class, 'show']);
 
-    Route::post('addToCart/{id}', [CartController::class, 'addToCart']);
-    Route::post('zamzamToCart/{id}', [CartController::class, 'zamzamToCart']);
-    Route::post('masajedToCart/{id}', [CartController::class, 'masajedToCart']);
-    Route::get('cartItems', [CartController::class, 'cartItems']);
-    Route::post('addQuantity/{id}', [CartController::class, 'addQuantity']);
-    Route::post('rmQuantity/{id}', [CartController::class, 'rmQuantity']);
-    Route::post('removeItem/{id}', [CartController::class, 'removeItem']);
+    // Route::post('addToCart/{id}', [CartController::class, 'addToCart']);
+    // Route::post('zamzamToCart/{id}', [CartController::class, 'zamzamToCart']);
+    // Route::post('masajedToCart/{id}', [CartController::class, 'masajedToCart']);
+    // Route::get('cartItems', [CartController::class, 'cartItems']);
+    // Route::post('addQuantity/{id}', [CartController::class, 'addQuantity']);
+    // Route::post('rmQuantity/{id}', [CartController::class, 'rmQuantity']);
+    // Route::post('removeItem/{id}', [CartController::class, 'removeItem']);
 
-    Route::post('confirm_order', [OrdersController::class, 'confirm_order']);
-    Route::get('order_details/{id}', [OrdersController::class, 'order_details']);
-    Route::get('user_orders', [OrdersController::class, 'user_orders']);
+    // Route::post('confirm_order', [OrdersController::class, 'confirm_order']);
+    // Route::get('order_details/{id}', [OrdersController::class, 'order_details']);
+    // Route::get('user_orders', [OrdersController::class, 'user_orders']);
 });
 
-Route::get('news', [NewsController::class, 'index']);
+// Route::get('news', [NewsController::class, 'index']);
 Route::get('banners', [BannersController::class, 'index']);
-Route::get('categories', [CategoriesController::class, 'index']);
-Route::get('subcategories', [SubCategoriesController::class, 'index']);
-Route::get('subcategory/{id}', [SubCategoriesController::class, 'comCat']);
+// Route::get('categories', [CategoriesController::class, 'index']);
+// Route::get('subcategories', [SubCategoriesController::class, 'index']);
+// Route::get('subcategory/{id}', [SubCategoriesController::class, 'comCat']);
 
-Route::get('products', [ProductsController::class, 'index']);
-Route::get('catproducts/{id}', [ProductsController::class, 'CatProducts']);
-Route::post('searchProducts', [ProductsController::class, 'searchProducts']);
+// Route::get('products', [ProductsController::class, 'index']);
+// Route::get('catproducts/{id}', [ProductsController::class, 'CatProducts']);
+// Route::post('searchProducts', [ProductsController::class, 'searchProducts']);
 
-Route::get('cities', [AddressesController::class, 'cities']);
+// Route::get('cities', [AddressesController::class, 'cities']);
 
 Route::get('settings', [SettingsController::class, 'index']);
 

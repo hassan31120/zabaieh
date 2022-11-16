@@ -24,7 +24,7 @@
                         <span class="nav-link-text me-1">الأعضاء</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/noti' ? 'active' : '' }}"
                         href="{{ route('admin.noti') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
@@ -32,8 +32,8 @@
                         </div>
                         <span class="nav-link-text me-1">الإشعارات</span>
                     </a>
-                </li>
-                <li class="nav-item">
+                </li> --}}
+                {{-- <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/cities' ? 'active' : '' }}"
                         href="{{ route('admin.cities') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
@@ -41,7 +41,7 @@
                         </div>
                         <span class="nav-link-text me-1">المحافظات</span>
                     </a>
-                </li>
+                </li> --}}
                 {{-- <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/addresses' ? 'active' : '' }}"
                         href="{{ route('admin.addresses') }}">
@@ -51,7 +51,7 @@
                         <span class="nav-link-text me-1">العناوين</span>
                     </a>
                 </li> --}}
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/orders' ? 'active' : '' }}"
                         href="{{ route('admin.orders') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
@@ -59,8 +59,8 @@
                         </div>
                         <span class="nav-link-text me-1">الطلبيات</span>
                     </a>
-                </li>
-                <li class="nav-item">
+                </li> --}}
+                {{-- <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/news' ? 'active' : '' }}"
                         href="{{ route('admin.news') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
@@ -68,7 +68,7 @@
                         </div>
                         <span class="nav-link-text me-1">الأخبار</span>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/banners' ? 'active' : '' }}"
                         href="{{ route('admin.banners') }}">
@@ -78,7 +78,7 @@
                         <span class="nav-link-text me-1">الصور</span>
                     </a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/categories' ? 'active' : '' }}"
                         href="{{ route('admin.categories') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
@@ -122,7 +122,7 @@
                         </div>
                         <span class="nav-link-text me-1">عروض المساجد</span>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/setting/edit/1' ? 'active' : '' }}"
                         href="{{ route('admin.setting.edit', 1) }}">
@@ -132,7 +132,7 @@
                         <span class="nav-link-text me-1">الإعدادات</span>
                     </a>
                 </li>
-                
+
             </ul>
             <div class="sidenav-footer position-absolute w-100">
                 <div class="mx-3">
