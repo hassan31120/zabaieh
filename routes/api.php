@@ -69,7 +69,7 @@ Route::get('banners', [BannersController::class, 'index']);
 // Route::get('catproducts/{id}', [ProductsController::class, 'CatProducts']);
 // Route::post('searchProducts', [ProductsController::class, 'searchProducts']);
 
-// Route::get('cities', [AddressesController::class, 'cities']);
+Route::get('cities', [AddressesController::class, 'cities']);
 
 Route::get('settings', [SettingsController::class, 'index']);
 
