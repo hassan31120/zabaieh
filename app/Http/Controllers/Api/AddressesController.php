@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Api\BaseController as Controller;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\AddressesResource;
 use App\Http\Resources\CitiesResource;
 use App\Models\Address;
@@ -23,7 +23,11 @@ class AddressesController extends Controller
     public function index()
     {
         $addresses = Address::all();
-        return $this->sendResponse(AddressesResource::collection($addresses), 'Addresses Receieved Successfully!');
+        // return $this->sendResponse(AddressesResource::collection($addresses), 'Addresses Receieved Successfully!');
+        return response()->json([
+            'success' => true,
+            'addresses' => AddressesResource::collection($addresses)
+        ], 200);
     }
 
     public function user_addresses()
@@ -33,9 +37,17 @@ class AddressesController extends Controller
             $addresses = Address::where('user_id', $user->id)->get();
             if (count($addresses)) {
                 if (Auth::user()->id == $addresses[0]->user_id) {
-                    return $this->sendResponse(AddressesResource::collection($addresses), 'Addresses Receieved Successfully!');
+                    // return $this->sendResponse(AddressesResource::collection($addresses), 'Addresses Receieved Successfully!');
+                    return response()->json([
+                        'success' => true,
+                        'addresses' => AddressesResource::collection($addresses)
+                    ], 200);
                 } else {
-                    return $this->sendError('You don\'t have the right to show this addresses');
+                    // return $this->sendError('You don\'t have the right to show this addresses');
+                    return response()->json([
+                        'success' => false,
+                        'message' => 'You don\'t have the right to show this addresses'
+                    ], 200);
                 }
             } else {
                 return response()->json([
@@ -45,7 +57,11 @@ class AddressesController extends Controller
                 ], 200);
             }
         } else {
-            return $this->sendError('there is no such user!');
+            // return $this->sendError('there is no such user!');
+            return response()->json([
+                'success' => false,
+                'message' => 'there is no such user!'
+            ], 200);
         }
     }
 
@@ -78,7 +94,11 @@ class AddressesController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return $this->sendError('please Validate error', $validator->errors());
+            // return $this->sendError('please Validate error', $validator->errors());
+            return response()->json([
+                'success' => false,
+                'error' => $validator->errors()
+            ], 200);
         }
 
         $input = $request->all();
@@ -110,12 +130,24 @@ class AddressesController extends Controller
         $address = Address::find($id);
         if (isset($address)) {
             if ($address->user_id == Auth::user()->id) {
-                return $this->sendResponse(new AddressesResource($address), 'found successfully!');
+                // return $this->sendResponse(new AddressesResource($address), 'found successfully!');
+                return response()->json([
+                    'success' => true,
+                    'address' => new AddressesResource($address)
+                ], 200);
             } else {
-                return $this->sendError('You don\'t have the right to show this addresses');
+                // return $this->sendError('You don\'t have the right to show this addresses');
+                return response()->json([
+                    'success' => false,
+                    'message' => 'You don\'t have the right to show this addresses'
+                ], 200);
             }
         } else {
-            return $this->sendError('There is no address!');
+            // return $this->sendError('There is no address!');
+            return response()->json([
+                'success' => false,
+                'message' => 'There is no address!'
+            ], 200);
         }
     }
 
@@ -152,7 +184,11 @@ class AddressesController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return $this->sendError('please Validate error', $validator->errors());
+            // return $this->sendError('please Validate error', $validator->errors());
+            return response()->json([
+                'success' => false,
+                'error' => $validator->errors()
+            ], 200);
         }
 
         if ($address) {
@@ -162,7 +198,11 @@ class AddressesController extends Controller
                 $address->update($input);
                 return response()->json(['message' => 'Address updated Successfully!']);
             } else {
-                return $this->sendError('you don\'t have the right to edit this address !!!');
+                // return $this->sendError('you don\'t have the right to edit this address !!!');
+                return response()->json([
+                    'suucess' => false,
+                    'message' => 'you don\'t have the right to edit this address !!!'
+                ], 200);
             }
         } else {
             return response()->json([
