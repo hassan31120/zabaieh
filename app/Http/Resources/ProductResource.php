@@ -23,7 +23,7 @@ class ProductResource extends JsonResource
             'image' => asset($this->image),
             'new_price' =>(double) $this->new_price,
             'old_price' =>(double) $this->old_price,
-            'cat_id' => $this->cat_id,
+            'cat_id' => (int) $this->cat_id,
             'cat' => $this->cat->name
         ];
     }
