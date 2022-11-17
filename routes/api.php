@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AddressesController;
 use App\Http\Controllers\Api\BannersController;
 use App\Http\Controllers\Api\Categorycontroller;
+use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\SettingsController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
@@ -60,7 +61,7 @@ Route::get('categories', [Categorycontroller::class, 'index']);
 // Route::get('subcategories', [SubCategoriesController::class, 'index']);
 // Route::get('subcategory/{id}', [SubCategoriesController::class, 'comCat']);
 
-// Route::get('products', [ProductsController::class, 'index']);
+Route::get('products', [ProductController::class, 'index']);
 // Route::get('catproducts/{id}', [ProductsController::class, 'CatProducts']);
 // Route::post('searchProducts', [ProductsController::class, 'searchProducts']);
 

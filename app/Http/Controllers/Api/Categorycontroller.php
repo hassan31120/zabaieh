@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryResource;
 use App\Models\Category;
-use Illuminate\Http\Request;
 
 class Categorycontroller extends Controller
 {
@@ -19,7 +18,7 @@ class Categorycontroller extends Controller
         } else {
             return response()->json([
                 'success' => false,
-                'categories' => CategoryResource::collection($cats),
+                'message' => 'there is no categories',
             ], 200);
         }
     }
