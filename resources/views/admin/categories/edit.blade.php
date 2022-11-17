@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('dash')
-الشركات
+الأقسام
 @endsection
 
 @section('content')
@@ -11,12 +11,13 @@
                 <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                     <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3 row">
                         <div class="col-6">
-                            <h5 class="text-white text-capitalize ps-3" style="margin-right: 10px">تعديل الشركة</h5>
+                            <h5 class="text-white text-capitalize ps-3" style="margin-right: 10px">تعديل القسم</h5>
                         </div>
                         <div class="col-6" style="position: relative;"><a href="{{ route('admin.categories') }}"
-                                style="position: absolute; left: 2%" class="btn btn-primary">عرض الشركات</a></div>
+                                style="position: absolute; left: 2%" class="btn btn-primary">عرض الأقسام</a></div>
                     </div>
                 </div>
+                @isset($cat)
                 <div class="card-body px-0 pb-2">
                     <div class="table-responsive p-0">
                         <div class=" container-fluid">
@@ -28,34 +29,17 @@
                                             <div class="card shadow-2-strong card-registration"
                                                 style="border-radius: 15px;">
                                                 <div class="card-body p-4 p-md-5">
-                                                    <form action="{{ route('admin.category.update', $category->id) }}"
+                                                    <form action="{{ route('admin.category.update', $cat->id) }}"
                                                         method="POST" enctype="multipart/form-data">
                                                         @csrf
 
                                                         <div class="row">
                                                             <div class="col-md-12 mb-4">
                                                                 <div class="form-outline">
-                                                                    <label class="form-label" for="title"
-                                                                        style="font-size: 18px">العنوان</label>
-                                                                    <input type="text" name="title" id="title"
-                                                                        class="form-control form-control-lg formborderCSS" value="{{ $category->title }}" />
-                                                                </div>
-
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="row">
-                                                            <div class="col-md-12 mb-4">
-                                                                <div class="form-outline">
-                                                                    <label class="form-label" for="title"
-                                                                        style="font-size: 18px">الصورة</label>
-
-                                                                        <div class="row">
-                                                                            <div class="col-6"><input type="file" name="image" id="title"
-                                                                                class="form-control form-control-lg formborderCSS" /></div>
-                                                                            <div class="col-6"> <img src="{{ asset($category->image) }}" alt="banner" style="width: 225px; height:225px;"> </div>
-                                                                        </div>
-
+                                                                    <label class="form-label" for="name"
+                                                                        style="font-size: 18px">الإسم</label>
+                                                                    <input type="text" name="name" id="name"
+                                                                        class="form-control form-control-lg formborderCSS" value="{{ $cat->name }}" />
                                                                 </div>
 
                                                             </div>
@@ -65,7 +49,6 @@
                                                             <input class="btn btn-primary btn-lg" type="submit"
                                                                 value="تعديل" />
                                                         </div>
-
                                                     </form>
                                                 </div>
                                             </div>
@@ -77,6 +60,11 @@
                         </div>
                     </div>
                 </div>
+                @else
+                <div class="alert alert-danger text-center mt-5" role="alert">
+                    <h2>لا يوجد قسم</h2>
+                </div>
+                @endisset
             </div>
         </div>
     </div>

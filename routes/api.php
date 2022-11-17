@@ -2,13 +2,8 @@
 
 use App\Http\Controllers\Api\AddressesController;
 use App\Http\Controllers\Api\BannersController;
-use App\Http\Controllers\Api\CartController;
-use App\Http\Controllers\Api\CategoriesController;
-use App\Http\Controllers\Api\NewsController;
-use App\Http\Controllers\Api\OrdersController;
-use App\Http\Controllers\Api\ProductsController;
+use App\Http\Controllers\Api\Categorycontroller;
 use App\Http\Controllers\Api\SettingsController;
-use App\Http\Controllers\Api\SubCategoriesController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -61,7 +56,7 @@ Route::middleware('auth:api')->group(function(){
 
 // Route::get('news', [NewsController::class, 'index']);
 Route::get('banners', [BannersController::class, 'index']);
-// Route::get('categories', [CategoriesController::class, 'index']);
+Route::get('categories', [Categorycontroller::class, 'index']);
 // Route::get('subcategories', [SubCategoriesController::class, 'index']);
 // Route::get('subcategory/{id}', [SubCategoriesController::class, 'comCat']);
 

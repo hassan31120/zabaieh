@@ -3,83 +3,64 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class Categorycontroller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        Carbon::setLocale('ar');
+        $cats = Category::all();
+        return view('admin.categories.index', compact('cats'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('admin.categories.add');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required'
+        ]);
+        $data = $request->all();
+        Category::create($data);
+        return redirect(route('admin.categories'))->with('success', 'تم إضافة القسم بنجاح');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        //
+        Carbon::setLocale('ar');
+        $cat = Category::find($id);
+        $products = Product::where('cat_id', $id)->get();
+        return view('admin.categories.showCat', compact('products', 'cat'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $cat = Category::find($id);
+        return view('admin.categories.edit', compact('cat'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $cat = Category::find($id);
+        $request->validate([
+            'name' => 'required'
+        ]);
+        $data = $request->all();
+        $cat->update($data);
+        return redirect(route('admin.categories'))->with('success', 'تم تعديل القسم بنجاح');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $cat = Category::find($id);
+        $cat->delete();
+        return redirect(route('admin.categories'))->with('success', 'تم تعديل القسم بنجاح');
     }
 }

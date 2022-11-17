@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('dash')
-المنتجات
+    المنتجات
 @endsection
 
 @section('content')
@@ -28,8 +28,10 @@
                                         {{-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">#</th> --}}
                                         <th class="text-uppercase text-secondary font-weight-bolder opacity-7 ps-2">
                                             الإسم</th>
+                                        <th class="text-center text-uppercase text-secondary font-weight-bolder opacity-7">
+                                            الصورة</th>
                                         <th class="text-uppercase text-secondary font-weight-bolder opacity-7 ps-2">
-                                            الوصف</th>
+                                            الوزن</th>
                                         <th class="text-uppercase text-secondary font-weight-bolder opacity-7 ps-2">
                                             منذ</th>
                                         <th class="text-uppercase text-secondary font-weight-bolder opacity-7 ps-2">
@@ -37,11 +39,7 @@
                                         <th class="text-uppercase text-secondary font-weight-bolder opacity-7 ps-2">
                                             السعر الجديد</th>
                                         <th class="text-uppercase text-secondary font-weight-bolder opacity-7 ps-2">
-                                            الشركة</th>
-                                        <th class="text-uppercase text-secondary font-weight-bolder opacity-7 ps-2">
                                             القسم</th>
-                                        <th class="text-center text-uppercase text-secondary font-weight-bolder opacity-7">
-                                            الصور</th>
                                         <th class="text-center text-uppercase text-secondary font-weight-bolder opacity-7">
                                             تعديل</th>
                                         <th class="text-center text-uppercase text-secondary font-weight-bolder opacity-7">
@@ -54,17 +52,24 @@
                                         <tr>
                                             <td>
                                                 <p class="text-xs font-weight-bold mb-0" style="margin-right:20px">
-                                                    {{ $product->title }}</p>
+                                                    {{ $product->name }}</p>
                                             </td>
 
                                             <td>
                                                 <p class="text-xs font-weight-bold mb-0" style="margin-right:20px">
-                                                    {{ $product->description }}</p>
+                                                    <img class="img-thumbnail" src="{{ asset($product->image) }}"
+                                                        height="120" width="160" alt="product">
+                                                </p>
+                                            </td>
+
+                                            <td>
+                                                <p class="text-xs font-weight-bold mb-0" style="margin-right:20px">
+                                                    {{ $product->weight }}</p>
                                             </td>
 
                                             <td>
                                                 <span
-                                                class="text-secondary text-xs font-weight-bold">{{ $product->created_at->diffForHumans() }}</span>
+                                                    class="text-secondary text-xs font-weight-bold">{{ $product->created_at->diffForHumans() }}</span>
                                             </td>
 
                                             <td>
@@ -79,16 +84,7 @@
 
                                             <td>
                                                 <p class="text-xs font-weight-bold mb-0" style="margin-right:20px">
-                                                    {{ $product->subcategories->categories->title }}</p>
-                                            </td>
-
-                                            <td>
-                                                <p class="text-xs font-weight-bold mb-0" style="margin-right:20px">
-                                                    {{ $product->subcategories->title }}</p>
-                                            </td>
-
-                                            <td class="align-middle text-center">
-                                                <a href="{{ route('product.images', $product->id) }}" class="btn btn-info"> عرض الصور </a>
+                                                    {{ $product->cat->name }}</p>
                                             </td>
 
                                             <td class="align-middle text-center">

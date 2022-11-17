@@ -9,7 +9,7 @@
                 target="_blank">
 
                 <img src="{{ asset('admin/img/logo-ct.png') }}" class="navbar-brand-img h-100" alt="main_logo">
-                <span class="me-1 font-weight-bold text-white">ثجاج</span>
+                <span class="me-1 font-weight-bold text-white">ذبائح</span>
             </a>
         </div>
         <hr class="horizontal light mt-0 mb-2">
@@ -33,7 +33,7 @@
                         <span class="nav-link-text me-1">الإشعارات</span>
                     </a>
                 </li> --}}
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/cities' ? 'active' : '' }}"
                         href="{{ route('admin.cities') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
@@ -41,7 +41,7 @@
                         </div>
                         <span class="nav-link-text me-1">المحافظات</span>
                     </a>
-                </li> --}}
+                </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/addresses' ? 'active' : '' }}"
                         href="{{ route('admin.addresses') }}">
@@ -78,18 +78,9 @@
                         <span class="nav-link-text me-1">الصور</span>
                     </a>
                 </li>
-                {{-- <li class="nav-item">
+                 <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/categories' ? 'active' : '' }}"
                         href="{{ route('admin.categories') }}">
-                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">format_textdirection_r_to_l</i>
-                        </div>
-                        <span class="nav-link-text me-1">الشركات</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::path() == 'admin/subs' ? 'active' : '' }}"
-                        href="{{ route('admin.subs') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
                             <i class="material-icons-round opacity-10">format_textdirection_r_to_l</i>
                         </div>
@@ -105,24 +96,6 @@
                         <span class="nav-link-text me-1">كل المنتجات</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::path() == 'admin/zamzam' ? 'active' : '' }}"
-                        href="{{ route('admin.zamzam') }}">
-                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">format_textdirection_r_to_l</i>
-                        </div>
-                        <span class="nav-link-text me-1">مياة زمزم</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link {{ Request::path() == 'admin/masajed' ? 'active' : '' }}"
-                        href="{{ route('admin.masajed') }}">
-                        <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">format_textdirection_r_to_l</i>
-                        </div>
-                        <span class="nav-link-text me-1">عروض المساجد</span>
-                    </a>
-                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/setting/edit/1' ? 'active' : '' }}"
                         href="{{ route('admin.setting.edit', 1) }}">
