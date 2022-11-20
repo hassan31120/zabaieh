@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('dash')
-الأقسام
+    الأقسام
 @endsection
 
 @section('content')
@@ -38,9 +38,21 @@
                                                                     <label class="form-label" for="name"
                                                                         style="font-size: 18px">الإسم</label>
                                                                     <input type="text" name="name" id="name"
-                                                                        class="form-control form-control-lg formborderCSS" required />
+                                                                        class="form-control form-control-lg formborderCSS"
+                                                                        required />
                                                                 </div>
+                                                            </div>
+                                                        </div>
 
+                                                        <div class="row">
+                                                            <div class="col-md-12 mb-4">
+                                                                <div class="form-outline">
+                                                                    <label class="form-label" for="image"
+                                                                        style="font-size: 18px">الصورة</label>
+                                                                    <input type="file" name="image" id="image"
+                                                                        class="form-control form-control-lg formborderCSS"
+                                                                        required />
+                                                                </div>
                                                             </div>
                                                         </div>
 

@@ -30,6 +30,8 @@
                                             الإسم</th>
 
                                         <th class="text-center text-uppercase text-secondary font-weight-bolder opacity-7">
+                                            الصورة</th>
+                                        <th class="text-center text-uppercase text-secondary font-weight-bolder opacity-7">
                                             منذ</th>
                                         <th class="text-center text-uppercase text-secondary font-weight-bolder opacity-7">
                                             تعديل</th>
@@ -46,6 +48,13 @@
                                                     <p class="text-xs font-weight-bold mb-0" style="margin-right:20px">
                                                         {{ $cat->name }}</p>
                                                 </a>
+                                            </td>
+
+                                            <td class="align-middle text-center">
+                                                <p class="text-xs font-weight-bold mb-0" style="margin-right:20px">
+                                                    <img class="img-thumbnail" src="{{ asset($cat->image) }}"
+                                                        height="120" width="160" alt="cat">
+                                                </p>
                                             </td>
 
                                             <td class="align-middle text-center">

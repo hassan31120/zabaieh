@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class Categorycontroller extends Controller
 {
@@ -25,9 +26,17 @@ class Categorycontroller extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required'
+            'name' => 'required',
+            'image' => 'required|image'
         ]);
         $data = $request->all();
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $filepath = 'storage/images/cats/' . date('Y') . '/' . date('m') . '/';
+            $filename = $filepath . time() . '-' . $file->getClientOriginalName();
+            $file->move($filepath, $filename);
+            $data['image'] = $filename;
+        }
         Category::create($data);
         return redirect(route('admin.categories'))->with('success', 'تم إضافة القسم بنجاح');
     }
@@ -53,6 +62,19 @@ class Categorycontroller extends Controller
             'name' => 'required'
         ]);
         $data = $request->all();
+        if ($request->hasfile('image')) {
+            $file = $request->file('image');
+            $filepath = 'storage/images/cats/' . date('Y') . '/' . date('m') . '/';
+            $filename = $filepath . time() . '-' . $file->getClientOriginalName();
+            $file->move($filepath, $filename);
+            if (request('old-image')) {
+                $oldpath = request('old-image');
+                if (File::exists($oldpath)) {
+                    unlink($oldpath);
+                }
+            }
+            $data['image'] = $filename;
+        }
         $cat->update($data);
         return redirect(route('admin.categories'))->with('success', 'تم تعديل القسم بنجاح');
     }
