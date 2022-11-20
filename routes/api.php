@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AddressesController;
 use App\Http\Controllers\Api\BannersController;
 use App\Http\Controllers\Api\Categorycontroller;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\SettingsController;
 use App\Http\Controllers\Api\UserController;
@@ -42,6 +43,8 @@ Route::middleware('auth:api')->group(function(){
     Route::get('/user_addresses', [AddressesController::class, 'user_addresses']);
     Route::get('/address/{id}', [AddressesController::class, 'show']);
 
+    Route::post('confirm_order', [OrderController::class, 'confirm_order']);
+
     // Route::post('addToCart/{id}', [CartController::class, 'addToCart']);
     // Route::post('zamzamToCart/{id}', [CartController::class, 'zamzamToCart']);
     // Route::post('masajedToCart/{id}', [CartController::class, 'masajedToCart']);
@@ -68,5 +71,7 @@ Route::get('products', [ProductController::class, 'index']);
 Route::get('cities', [AddressesController::class, 'cities']);
 
 Route::get('settings', [SettingsController::class, 'index']);
+
+Route::get('orders', [OrderController::class, 'orders']);
 
 
