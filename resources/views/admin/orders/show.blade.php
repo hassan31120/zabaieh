@@ -96,18 +96,17 @@
                                                 <div class="card-body">
                                                     <div class="row">
                                                         <div class="col-lg-6">
-                                                            <h3 class="h6">Payment Method</h3>
-                                                            <p>Visa -1234 <br>
-                                                                Total: $169,98 <span
-                                                                    class="badge bg-success rounded-pill">PAID</span></p>
+                                                            <h3 class="h6">طريقة الدفع</h3>
+                                                            الإجمالي: {{ $order->total }} <br> <span
+                                                                class="badge bg-success rounded-pill">{{ $order->pay_method }}</span>
+                                                            </p>
                                                         </div>
                                                         <div class="col-lg-6">
-                                                            <h3 class="h6">Billing address</h3>
+                                                            <h3 class="h6">عنوان التوصيل</h3>
                                                             <address>
-                                                                <strong>John Doe</strong><br>
-                                                                1355 Market St, Suite 900<br>
-                                                                San Francisco, CA 94103<br>
-                                                                <abbr title="Phone">P:</abbr> (123) 456-7890
+                                                                <strong>{{ $order->address->title }}</strong><br>
+                                                                <p>{{ $order->address->description }}</p>
+                                                                <p>{{ $order->user->number }}</p>
                                                             </address>
                                                         </div>
                                                     </div>
@@ -118,27 +117,20 @@
                                             <!-- Customer Notes -->
                                             <div class="card mb-4">
                                                 <div class="card-body">
-                                                    <h3 class="h6">Customer Notes</h3>
-                                                    <p>Sed enim, faucibus litora velit vestibulum habitasse. Cras lobortis
-                                                        cum sem aliquet mauris rutrum. Sollicitudin. Morbi, sem tellus
-                                                        vestibulum porttitor.</p>
+                                                    <h3 class="h6">ملاحظات العميل</h3>
+                                                    <p>{{ $order->notes }}</p>
                                                 </div>
                                             </div>
                                             <div class="card mb-4">
                                                 <!-- Shipping information -->
                                                 <div class="card-body">
-                                                    <h3 class="h6">Shipping Information</h3>
-                                                    <strong>FedEx</strong>
-                                                    <span><a href="#" class="text-decoration-underline"
-                                                            target="_blank">FF1234567890</a> <i
-                                                            class="bi bi-box-arrow-up-right"></i> </span>
+                                                    <h3 class="h6">معلومات الشحن</h3>
                                                     <hr>
-                                                    <h3 class="h6">Address</h3>
+                                                    <h3 class="h6">العنوان</h3>
                                                     <address>
-                                                        <strong>John Doe</strong><br>
-                                                        1355 Market St, Suite 900<br>
-                                                        San Francisco, CA 94103<br>
-                                                        <abbr title="Phone">P:</abbr> (123) 456-7890
+                                                        <strong>{{ $order->address->title }}</strong><br>
+                                                        <p>{{ $order->address->description }}</p>
+                                                        <p>{{ $order->user->number }}</p>
                                                     </address>
                                                 </div>
                                             </div>
@@ -149,7 +141,9 @@
                         </div>
                     </div>
                 @else
-                    noo
+                <div class="alert alert-danger text-center" role="alert">
+                    <h2>لا يوجد طلب</h2>
+                </div>
                 @endif
             </div>
         </div>

@@ -100,9 +100,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
     Route::get('/order/{id}', [OrderController::class, 'show'])->name('admin.order.details');
     Route::post('/order/status/{id}', [OrderController::class, 'changeStatus'])->name('order.status');
 
-    // //Notifications
-    // Route::get('/noti', [NotificationController::class, 'noti'])->name('admin.noti');
-    // Route::post('/push', [NotificationController::class, 'push'])->name('admin.push');
+    //Notifications
+    Route::get('/noti', [NotificationController::class, 'noti'])->name('admin.noti');
+    Route::post('/push', [NotificationController::class, 'push'])->name('admin.push');
 
     // Settings
     // Route::get('/settings', [SettingsController::class, 'index'])->name('admin.settings');

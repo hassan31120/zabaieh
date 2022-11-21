@@ -53,7 +53,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
+                                                        {{--
                                                         <div class="row">
                                                             <div class="col-md-12 mb-4">
                                                                 <div class="form-outline">
@@ -70,7 +70,7 @@
                                                                     <div id="myOptionsDiv" class="mt-4"> </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
 
                                                         <div class="row">
                                                             <div class="col-md-12 mb-4">

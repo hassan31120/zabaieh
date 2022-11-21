@@ -24,25 +24,25 @@
                     <a class="nav-link {{ Request::path() == 'admin/users' ? 'active' : '' }}"
                         href="{{ route('admin.users') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">format_textdirection_r_to_l</i>
+                            <i class="fas fa-user"></i>
                         </div>
                         <span class="nav-link-text me-1">الأعضاء</span>
                     </a>
                 </li>
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/noti' ? 'active' : '' }}"
                         href="{{ route('admin.noti') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">format_textdirection_r_to_l</i>
+                            <i class="fas fa-bell"></i>
                         </div>
                         <span class="nav-link-text me-1">الإشعارات</span>
                     </a>
-                </li> --}}
+                </li>
                 <li class="nav-item">
                     <a class="nav-link {{ Request::path() == 'admin/cities' ? 'active' : '' }}"
                         href="{{ route('admin.cities') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">format_textdirection_r_to_l</i>
+                            <i class="fas fa-globe-americas"></i>
                         </div>
                         <span class="nav-link-text me-1">المحافظات</span>
                     </a>
@@ -60,7 +60,7 @@
                     <a class="nav-link {{ Request::path() == 'admin/orders' ? 'active' : '' }}"
                         href="{{ route('admin.orders') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">format_textdirection_r_to_l</i>
+                            <i class="fas fa-tags"></i>
                         </div>
                         <span class="nav-link-text me-1">الطلبيات</span>
                     </a>
@@ -78,7 +78,7 @@
                     <a class="nav-link {{ Request::path() == 'admin/banners' ? 'active' : '' }}"
                         href="{{ route('admin.banners') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">format_textdirection_r_to_l</i>
+                            <i class="fas fa-images"></i>
                         </div>
                         <span class="nav-link-text me-1">الصور</span>
                     </a>
@@ -87,7 +87,7 @@
                     <a class="nav-link {{ Request::path() == 'admin/categories' ? 'active' : '' }}"
                         href="{{ route('admin.categories') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">format_textdirection_r_to_l</i>
+                            <i class="fas fa-puzzle-piece"></i>
                         </div>
                         <span class="nav-link-text me-1">الأقسام</span>
                     </a>
@@ -96,7 +96,7 @@
                     <a class="nav-link {{ Request::path() == 'admin/products' ? 'active' : '' }}"
                         href="{{ route('admin.products') }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">format_textdirection_r_to_l</i>
+                            <i class="fab fa-product-hunt"></i>
                         </div>
                         <span class="nav-link-text me-1">كل المنتجات</span>
                     </a>
@@ -105,14 +105,14 @@
                     <a class="nav-link {{ Request::path() == 'admin/setting/edit/1' ? 'active' : '' }}"
                         href="{{ route('admin.setting.edit', 1) }}">
                         <div class="text-white text-center ms-2 d-flex align-items-center justify-content-center">
-                            <i class="material-icons-round opacity-10">format_textdirection_r_to_l</i>
+                            <i class="fas fa-cog"></i>
                         </div>
                         <span class="nav-link-text me-1">الإعدادات</span>
                     </a>
                 </li>
 
             </ul>
-            <div class="sidenav-footer position-absolute w-100">
+            <div class="sidenav-footer position-absolute w-100" style="bottom: 0">
                 <div class="mx-3">
                     <a class="btn bg-gradient-primary mt-4 w-100" href="{{ route('logout') }}" type="button"><i
                             class="fas fa-sign-out-alt"></i> تسحيل الخروج</a>

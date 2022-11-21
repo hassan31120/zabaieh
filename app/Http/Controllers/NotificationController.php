@@ -18,33 +18,35 @@ class NotificationController extends Controller
         $request->validate([
             'title' => 'required',
             'body' => 'required',
-            'gender' => 'required'
+            // 'gender' => 'required'
         ]);
 
         $noti = $request->all();
 
-        if (isset($noti['from'], $noti['to'])) {
-            $from = $noti['from'];
-            $to = $noti['to'];
-        }
+        // if (isset($noti['from'], $noti['to'])) {
+        //     $from = $noti['from'];
+        //     $to = $noti['to'];
+        // }
 
-        if ($noti['gender'] == 1) {
-            $users = User::all();
-        } elseif ($noti['gender'] == 2) {
-            if (isset($from, $to)) {
-                $users = User::where('gender', 'male')->whereBetween('real_age', [$from, $to])->get();
-            } else {
-                $users = User::where('gender', 'male')->get();
-            }
-        } elseif ($noti['gender'] == 3) {
-            if (isset($from, $to)) {
-                $users = User::where('gender', 'female')->whereBetween('real_age', [$from, $to])->get();
-            } else {
-                $users = User::where('gender', 'female')->get();
-            }
-        } else {
-            $users = User::all();
-        }
+        // if ($noti['gender'] == 1) {
+        //     $users = User::all();
+        // } elseif ($noti['gender'] == 2) {
+        //     if (isset($from, $to)) {
+        //         $users = User::where('gender', 'male')->whereBetween('real_age', [$from, $to])->get();
+        //     } else {
+        //         $users = User::where('gender', 'male')->get();
+        //     }
+        // } elseif ($noti['gender'] == 3) {
+        //     if (isset($from, $to)) {
+        //         $users = User::where('gender', 'female')->whereBetween('real_age', [$from, $to])->get();
+        //     } else {
+        //         $users = User::where('gender', 'female')->get();
+        //     }
+        // } else {
+        //     $users = User::all();
+        // }
+
+        $users = User::all();
 
         if ($request->hasFile('noti_image')) {
             $file = $request->file('noti_image');
@@ -58,7 +60,7 @@ class NotificationController extends Controller
             }
         }
 
-        $SERVER_API_KEY = 'AAAA57zOeQM:APA91bHiMkyhWVsq6VPQ68k6j5mzut4a5wrlmTuP-vtgb00Xctokj1cSmBQz7ce0IRetqhUeXqu4hvkG-SX8U9Hl8rr9KvEtO-oteZwK1FB8j5r9X6LA6v1wf8Qwcpwr0ibPExaR9CPg';
+        $SERVER_API_KEY = 'AAAAcNpRyXs:APA91bHtHfQHUeakV97gNquZ0-ETCLVfuleBxHh1uuC3D-bvzRwHvd5xDmoAGVbT7rXgoyKtQNSp6z5baNzbyXmmt6X5lc7F70S19LRQE6uYhLgXximKt3ibeDiPTpLXhTff0ZXul4OT';
 
         $token = [];
         foreach ($users as $user) {
