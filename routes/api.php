@@ -31,7 +31,7 @@ Route::post('send_code', [UserController::class, 'send_code']);
 Route::post('confirm_code/{id}', [UserController::class, 'confirm_code']);
 Route::post('password_reset', [UserController::class, 'password_reset']);
 
-Route::middleware('auth:api')->group(function(){
+Route::middleware('auth:api')->group(function () {
     //profile
     Route::post('edit_profile', [UserController::class, 'editData']);
     Route::post('change_password', [UserController::class, 'change_password']);
@@ -45,6 +45,7 @@ Route::middleware('auth:api')->group(function(){
 
     Route::post('confirm_order', [OrderController::class, 'confirm_order']);
     Route::get('user_orders', [OrderController::class, 'user_orders']);
+    Route::get('one_order/{id}', [OrderController::class, 'one_order']);
 
     // Route::post('addToCart/{id}', [CartController::class, 'addToCart']);
     // Route::post('zamzamToCart/{id}', [CartController::class, 'zamzamToCart']);
@@ -73,6 +74,4 @@ Route::get('cities', [AddressesController::class, 'cities']);
 
 Route::get('settings', [SettingsController::class, 'index']);
 
-Route::get('orders', [OrderController::class, 'orders']);
-
-
+// Route::get('orders', [OrderController::class, 'orders']);

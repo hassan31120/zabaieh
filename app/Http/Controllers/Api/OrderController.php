@@ -62,18 +62,26 @@ class OrderController extends Controller
         }
     }
 
-    public function orders()
+    public function one_order($id)
     {
-        $orders  = Order::all();
-        if (count($orders) > 0) {
-            return response()->json([
-                'success' => true,
-                'orders' => OrderResource::collection($orders)
-            ], 200);
+        $user = Auth::user();
+        $order  = Order::find($id);
+        if ($order) {
+            if ($order->user_id == $user->id) {
+                return response()->json([
+                    'success' => true,
+                    'orders' => new OrderResource($order)
+                ], 200);
+            } else {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'you don\'t have the right to see this order! '
+                ], 200);
+            }
         } else {
             return response()->json([
                 'success' => false,
-                'message' => 'there is no orders'
+                'message' => 'there is no such order'
             ], 200);
         }
     }
