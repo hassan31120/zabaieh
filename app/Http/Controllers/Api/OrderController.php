@@ -77,4 +77,21 @@ class OrderController extends Controller
             ], 200);
         }
     }
+
+    public function user_orders()
+    {
+        $user = Auth::user();
+        $orders  = Order::where('user_id', $user->id);
+        if (count($orders) > 0) {
+            return response()->json([
+                'success' => true,
+                'orders' => OrderResource::collection($orders)
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'there is no orders for this user!'
+            ], 200);
+        }
+    }
 }
