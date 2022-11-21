@@ -81,7 +81,7 @@ class OrderController extends Controller
     public function user_orders()
     {
         $user = Auth::user();
-        $orders  = Order::where('user_id', $user->id);
+        $orders  = Order::where('user_id', $user->id)->get();
         if (count($orders) > 0) {
             return response()->json([
                 'success' => true,
