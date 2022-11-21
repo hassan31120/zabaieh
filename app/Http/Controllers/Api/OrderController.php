@@ -56,8 +56,16 @@ class OrderController extends Controller
     public function orders()
     {
         $orders  = Order::all();
-        return response()->json([
-            'orders' => OrderResource::collection($orders)
-        ], 200);
+        if (count($orders) > 0) {
+            return response()->json([
+                'success' => true,
+                'orders' => OrderResource::collection($orders)
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'there is no orders'
+            ], 200);
+        }
     }
 }
