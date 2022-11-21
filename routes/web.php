@@ -2,19 +2,14 @@
 
 use App\Http\Controllers\Admin\AddressesController;
 use App\Http\Controllers\Admin\BannersController;
-use App\Http\Controllers\Admin\CategoriesController;
 use App\Http\Controllers\Admin\Categorycontroller;
 use App\Http\Controllers\Admin\CityController;
-use App\Http\Controllers\Admin\MasajedController;
 use App\Http\Controllers\Admin\NewsController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\OrdersController;
 use App\Http\Controllers\Admin\ProductController;
-use App\Http\Controllers\Admin\ProductImagesController;
-use App\Http\Controllers\Admin\ProductsController;
 use App\Http\Controllers\Admin\SettingsController;
-use App\Http\Controllers\Admin\SubCategoriesController;
 use App\Http\Controllers\Admin\UsersController;
-use App\Http\Controllers\Admin\ZamzamController;
 use App\Http\Controllers\NotificationController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -98,12 +93,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'isAdmin'], function () {
     Route::post('/product/update/{id}', [ProductController::class, 'update'])->name('admin.product.update');
     Route::get('/product/destroy/{id}', [ProductController::class, 'destroy'])->name('admin.product.destroy');
 
-    // //Orders
-    // Route::get('/orders', [OrdersController::class, 'index'])->name('admin.orders');
-    // Route::get('/accepted_orders', [OrdersController::class, 'accepted'])->name('admin.orders.accepted');
-    // Route::get('/rejected_orders', [OrdersController::class, 'rejected'])->name('admin.orders.rejected');
-    // Route::get('/order/{id}', [OrdersController::class, 'show'])->name('admin.order.details');
-    // Route::post('/order/status/{id}', [OrdersController::class, 'changeStatus'])->name('order.status');
+    //Orders
+    Route::get('/orders', [OrderController::class, 'index'])->name('admin.orders');
+    Route::get('/accepted_orders', [OrderController::class, 'accepted'])->name('admin.orders.accepted');
+    Route::get('/rejected_orders', [OrderController::class, 'rejected'])->name('admin.orders.rejected');
+    Route::get('/order/{id}', [OrderController::class, 'show'])->name('admin.order.details');
+    Route::post('/order/status/{id}', [OrderController::class, 'changeStatus'])->name('order.status');
 
     // //Notifications
     // Route::get('/noti', [NotificationController::class, 'noti'])->name('admin.noti');

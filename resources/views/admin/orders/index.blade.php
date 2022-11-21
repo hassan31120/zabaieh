@@ -55,12 +55,12 @@
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">{{ $order->users->name }}</h6>
+                                                        <h6 class="mb-0 text-sm">{{ $order->user->name }}</h6>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">{{ $order->users->number }}</p>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $order->user->number }}</p>
                                             </td>
 
 
@@ -77,7 +77,7 @@
 
                                             <td>
                                                 <p class="text-xs font-weight-bold mb-0 text-center">
-                                                    {{ $order->grandTotal }}
+                                                    {{ $order->product->new_price }}
                                                 </p>
                                             </td>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\OrderResource;
+use App\Models\Address;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -41,7 +42,11 @@ class OrderController extends Controller
         }
         if (in_array($data['address_id'], $ad)) {
             $product = Product::find($request['product_id']);
+            $address = Address::find($request['address_id']);
             if ($product) {
+                $price = $product->new_price;
+                $payment = $address->cities->price;
+                $data['total'] = $price + $payment;
                 $order = Order::create($data);
                 return response()->json([
                     'success' => true,

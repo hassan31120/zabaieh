@@ -29,7 +29,9 @@ class OrderResource extends JsonResource
             'address'    => $this->address->title,
             'product'    => $this->product->name,
             'weight'     => $this->product->weight,
-            'price'      => $this->product->new_price,
+            'price'      => (double) $this->product->new_price,
+            'ship_price' => (double) $this->address->cities->price,
+            'total'      => (double) $this->total,
             'image'      => asset($this->product->image),
         ];
     }

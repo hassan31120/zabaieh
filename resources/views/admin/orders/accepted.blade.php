@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('dash')
-الطلبيات
+    الطلبيات
 @endsection
 
 @section('content')
@@ -16,7 +16,8 @@
                         </div>
                         <div class="col-6" style="position: relative;">
                             <div style="position: absolute; left: 2%">
-                                <a href="{{ route('admin.orders') }}" class="btn btn-primary" style="margin-left: 10px">المعلقة</a>
+                                <a href="{{ route('admin.orders') }}" class="btn btn-primary"
+                                    style="margin-left: 10px">المعلقة</a>
                                 <a href="{{ route('admin.orders.rejected') }}" class="btn btn-primary">المرفوض</a>
                             </div>
                         </div>
@@ -55,14 +56,13 @@
                                             <td>
                                                 <div class="d-flex px-2 py-1">
                                                     <div class="d-flex flex-column justify-content-center">
-                                                        <h6 class="mb-0 text-sm">{{ $order->users->name }}</h6>
+                                                        <h6 class="mb-0 text-sm">{{ $order->user->name }}</h6>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td>
-                                                <p class="text-xs font-weight-bold mb-0">{{ $order->users->number }}</p>
+                                                <p class="text-xs font-weight-bold mb-0">{{ $order->user->number }}</p>
                                             </td>
-
 
                                             <td class="align-middle text-center">
 
@@ -77,7 +77,7 @@
 
                                             <td>
                                                 <p class="text-xs font-weight-bold mb-0 text-center">
-                                                    {{ $order->grandTotal }}
+                                                    {{ $order->product->new_price }}
                                                 </p>
                                             </td>
 
@@ -95,14 +95,14 @@
                                             </td>
                                             <td>
                                                 <p class="text-center" style="margin-top: 30px:">
-                                                    <form action="{{ route('order.status', $order->id) }}" method="POST"
-                                                        class="text-center">
-                                                        @csrf
-                                                        <span class="tick-circle mr-5">
-                                                            <input type="hidden" name="status" value="Pending">
-                                                            <input type="submit" value="تعليق" class="btn btn-light">
-                                                        </span>
-                                                    </form>
+                                                <form action="{{ route('order.status', $order->id) }}" method="POST"
+                                                    class="text-center">
+                                                    @csrf
+                                                    <span class="tick-circle mr-5">
+                                                        <input type="hidden" name="status" value="Pending">
+                                                        <input type="submit" value="تعليق" class="btn btn-light">
+                                                    </span>
+                                                </form>
                                                 </p>
                                             </td>
                                         </tr>
