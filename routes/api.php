@@ -44,7 +44,7 @@ Route::middleware('auth:api')->group(function(){
     Route::get('/address/{id}', [AddressesController::class, 'show']);
 
     Route::post('confirm_order', [OrderController::class, 'confirm_order']);
-    Route::post('user_orders', [OrderController::class, 'user_orders']);
+    Route::get('user_orders', [OrderController::class, 'user_orders']);
 
     // Route::post('addToCart/{id}', [CartController::class, 'addToCart']);
     // Route::post('zamzamToCart/{id}', [CartController::class, 'zamzamToCart']);
